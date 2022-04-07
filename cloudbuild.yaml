@@ -18,3 +18,5 @@
    - 'europe-west2'
  images:
  - 'gcr.io/$PROJECT_ID/cyclepaths:$COMMIT_SHA'
+ 
+ - timeout: 1200s
