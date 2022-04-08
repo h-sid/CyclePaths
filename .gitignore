@@ -4,6 +4,6 @@
 venv
 *.png
 *.ipynb
-.idea
+.idea/
 __pycache__
 *DS_Store
