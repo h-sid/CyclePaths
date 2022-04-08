@@ -5,7 +5,7 @@ from flask import redirect
 import argparse
 import os
 import sys
-from functools import cache
+from functools import lru_cache
 from CyclePaths.navigation.a_star import astar_path
 import pandas as pd
 import altair as alt
@@ -14,7 +14,7 @@ os.system('gsutil cp gs://os-road-data-hackathon/data_with_estimate.pq .')
 gdf = gpd.read_parquet('data_with_estimate.pq')
 
 
-@cache
+@lru_cache(max_size=none)
 def googleMapsSucks(startRoad, endRoad, dangerLevel):
 
     def cyclingWeight(row):
