@@ -14,7 +14,7 @@ os.system('gsutil cp gs://os-road-data-hackathon/data_with_estimate.pq .')
 gdf = gpd.read_parquet('data_with_estimate.pq')
 
 
-@lru_cache(max_size=none)
+@lru_cache(max_size=None)
 def googleMapsSucks(startRoad, endRoad, dangerLevel):
 
     def cyclingWeight(row):
