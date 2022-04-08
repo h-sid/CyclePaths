@@ -1,4 +1,6 @@
-# For more information, please refer to https://aka.ms/vscode-docker-python# FROM python:3.9-slim
+# For more information, please refer to https://aka.ms/vscode-docker-python# 
+FROM python:3.9-slim
+
 EXPOSE 8080
 
 # Keeps Python from g   enerating .pyc files in the container
