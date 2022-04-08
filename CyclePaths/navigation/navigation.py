@@ -6,11 +6,11 @@ import argparse
 import os
 import sys
 from functools import lru_cache
-from navigation.a_star import astar_path
+from CyclePaths.navigation.a_star import astar_path
 import pandas as pd
 import altair as alt
 
-gdf = gpd.read_parquet('data_with_estimate.pq')
+gdf = gpd.read_parquet('CyclePaths/data_with_estimate.pq')
 
 
 @lru_cache(maxsize=None)
