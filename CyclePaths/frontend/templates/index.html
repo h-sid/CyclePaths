@@ -7,7 +7,6 @@
     <script src="{{url_for('static', filename='javascript.js')}}"></script>
 
 
-
 </head>
 <body>
     <div id="container">
@@ -16,42 +15,83 @@
             {{ _map|safe }} 
         </div>
 
-            <form id="search" autocomplete="off" onsubmit="return readRoadInput();">
+            <form id="search" class="form-container" autocomplete="off" onsubmit="return readRoadInput();">
 
 
+                
+                <script>
+                    customElements.define( 'data-list-1', class extends HTMLInputElement {
+                    static get observedAttributes() { return [ 'source' ] }
+                    async attributeChangedCallback( name, old, file ) {
+                        let fs = await fetch( file )
+                        this.insertAdjacentHTML( 'afterend', await fs.text() )
+                    }
+                }, { extends: 'input' } )
+                </script>
+
+                <input type="text" is="data-list-1" id="startInput" source="static\roads.html" list="roads" placeholder="Start" multiple>
+
+
+
+                <script>
+
+                    customElements.define( 'data-list-2', class extends HTMLInputElement {
+                    static get observedAttributes() { return [ 'source' ] }
+                    async attributeChangedCallback( name, old, file ) {
+                        let fs = await fetch( file )
+                        this.insertAdjacentHTML( 'afterend', await fs.text() )
+                    }
+                }, { extends: 'input' } )
+                </script>
+
+
+
+                <input type="text" is="data-list-2" id="endInput" source="static\roads.html" list="roads" placeholder="End" multiple>
+
+
+                <div class="slider-container">
+                    <input type="range" min="1" max="9" value="5" class="emoji-slider" id="range"></input> 
+                    <label for="range" class="emoji" id="emoji">🚲</label>
+                   
+                </div>
+
+                <input type="submit" value="Find Route">
+
+                <script>
+
+                    document.getElementById("startInput").value = '{{ start }}';
+                    document.getElementById("endInput").value = '{{ end }}';
+                    document.getElementById("range").value = '{{ dangerLevel }}';
+                    
+
+                    var emoji = document.getElementById('emoji');
+                    var sliderValue = document.getElementById('range');
+
+                    sliderValue.oninput = function(){
+                    var value = this.value;
+                    if(value <=3)
+                    {
+                        emoji.innerHTML = '🐌';
+                    }
+                        
+                    else if(value <=6)
+                    {
+                        emoji.innerHTML = '🚲';
+                    }
+                        
+                    else
+                    {
+                        emoji.innerHTML = '🚑';
+                    }  
+                    
+                    }
+
+                    document.getElementById("range").dispatchEvent(new Event("input"));
+
+
+
+                </script>
             
-            <script>
-                customElements.define( 'data-list-1', class extends HTMLInputElement {
-                static get observedAttributes() { return [ 'source' ] }
-                async attributeChangedCallback( name, old, file ) {
-                    let fs = await fetch( file )
-                    this.insertAdjacentHTML( 'afterend', await fs.text() )
-                }
-            }, { extends: 'input' } )
-            </script>
-
-            <input type="text" is="data-list-1" id="startInput" source="static\roads.html" list="roads" placeholder="Start" multiple>
-
-
-
-            <script>
-                customElements.define( 'data-list-2', class extends HTMLInputElement {
-                static get observedAttributes() { return [ 'source' ] }
-                async attributeChangedCallback( name, old, file ) {
-                    let fs = await fetch( file )
-                    this.insertAdjacentHTML( 'afterend', await fs.text() )
-                }
-            }, { extends: 'input' } )
-            </script>
-
-            <input type="text" is="data-list-2" id="endInput" source="static\roads.html" list="roads" placeholder="End" multiple>
-
-            <div class="slidecontainer" id="slider">
-                <input type="range" min="1" max="100" value="50" class="slider" id="dangerAversion">
-            </div>
-
-            <input type="submit" value="Find Route">
-
             </form>
         
     </div>
