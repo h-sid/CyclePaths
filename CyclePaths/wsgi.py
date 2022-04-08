@@ -1,4 +1,4 @@
-from CyclePaths.frontend.app import app
+from frontend.app import app
 
 
 if __name__ == '__main__':
