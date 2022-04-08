@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from CyclePaths.navigation.navigation import googleMapsSucks
+from navigation.navigation import googleMapsSucks
 import folium
 
 app = Flask(__name__)
