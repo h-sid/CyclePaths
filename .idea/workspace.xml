@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="783d613f-96a2-42c0-aa08-933067db12b1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/CyclePaths/frontend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/CyclePaths/frontend/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CyclePaths/navigation/navigation.py" beforeDir="false" afterPath="$PROJECT_DIR$/CyclePaths/navigation/navigation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-    </list>
+    <list default="true" id="783d613f-96a2-42c0-aa08-933067db12b1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

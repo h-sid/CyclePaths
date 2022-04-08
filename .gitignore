@@ -1,5 +1,4 @@
 *.egg-info
-*.pq
 *.json
 venv
 *.png
